@@ -1,0 +1,41 @@
+<style>
+table, th, td{
+  border: 2px blue;
+  centent-align: center;
+}
+</style>
+
+<form action="/schedules/new" method="get">
+    <input class="btn green darken-4" type="submit" value="Add New Schedule">
+</form>
+<table class="highlight">
+<thead>
+  <tr>
+    <th>Date</th>
+    <th>Booking time</th>
+    <th>Number of holes</th>
+    <th>Course</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Note</th>
+    <th>View</th>
+    
+  </tr>
+</thead>
+<tbody>
+<% @schedules.each do |t| %>
+  
+  <tr>
+    <td><%= t.date %></td>
+    <td><%= t.booking_time %></td>
+    <td><%= t.number_of_holes %></td>
+    <td><%= t.course %></td>
+    <td><%= t.phone %></td>
+    <td><%= t.email %></td>
+    <td><%= t.note %></td>
+    <td><a href="/schedules/<%= t.id %>">Link</a> </td>
+  </tr>
+  <% end %>
+  </tbody>
+  
+  </table>

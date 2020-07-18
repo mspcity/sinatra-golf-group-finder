@@ -1,0 +1,60 @@
+<% if Helpers.is_logged_in?(session) %>
+<h1>Create Schedule</h1>
+
+<form action="/schedules" method="post">
+
+<div class="input-field">
+<input type="text" name="date" id="date">
+<label for="date">Date:</label>
+</div>
+
+<div class="input-field">
+<input type="text" name="booking_time" id="booking_time">
+<label for="booking_time">Booking Time:</label>
+</div>
+
+<div class="input-field">
+<label for="number_of_holes">Number of Holes:</label>
+<input type="text" name="number_of_holes" id="number_of_holes"><br>
+<br>
+</div>
+
+<div class="input-field">
+<label for="course">Course:</label>
+<input type="text" name="course" id="course"><br>
+<br>
+</div>
+
+<div class="input-field">
+<label for="phone">Phone:</label>
+<input type="text" name="phone" id="phone"><br>
+<br>
+</div>
+
+<div class="input-field">
+<label for="email">Email:</label>
+<input type="text" name="email" id="email"><br>
+<br>
+</div>
+
+<div class="input-field">
+<label for="note">Note:</label>
+<input type="text" name="note" id="note"><br>
+<br>
+</div>
+
+
+
+
+
+<input class="btn green darken-4" type="submit", name="submit" id="submit">
+</form>
+
+<% else %>
+<p>please log in to add your schedule</p>
+<form action="/login" method="get">
+<input class="btn green darken-4" type="submit", value="login">
+</form>
+<% end %>
+
+

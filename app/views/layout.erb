@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+  <head>
+    <!--<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />-->
+
+    <title>Golf Group Finder</title>
+
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
+   <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!--<link rel="stylesheet" href="/stylesheets/main.css" />-->
+  </head>
+  <body class="light-green lighten-2">
+    <div class="wrapper">
+    
+      <% if Helpers.is_logged_in?(session) %>
+          <a href="/logout">
+          <input class="btn green darken-4" type="submit", name="submit" value="logout">
+          </a>
+
+      <% end %>
+
+      <% if Helpers.current_user(session) %>
+        <p>Hello, <%= Helpers.current_user(session).username %>
+      <% end %>
+
+      <div class="container">
+        <h1 class = "center">Golf Group Finder</h1>
+        <div class=center>
+        <img src="https://static.wixstatic.com/media/a56a5d15f18026e40d09d8c7b15c05c0.wix_mp/v1/fill/w_784,h_588,al_c,usm_0.66_1.00_0.01/a56a5d15f18026e40d09d8c7b15c05c0.wix_mp" height="250px" width="350px" class="center">
+        </div>
+      </div>
+        <%= yield %>
+
+      <footer class="branding">
+        <small>&copy; 2020 <strong>SinatraGolfGroupFinder</strong></small>
+      </footer>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <!--[if lt IE 7]>
+      <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+      <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+    <![endif]-->
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+  </body>
+</html>

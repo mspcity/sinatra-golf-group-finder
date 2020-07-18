@@ -1,0 +1,51 @@
+<form action="/schedules/<%= @schedule.id %>" method="post">
+    <h2>Edit Schedule</h2>
+
+    <input id="hidden" type="hidden" name="_method" value="patch">
+
+    <label>Current Date:</label> <%= @schedule.date %>
+    <br>
+    <label>New Date:</label>
+    <input type="text" name="date">
+    <br>
+
+    <label>Current Booking Time:</label> <%= @schedule.booking_time %>
+    <br>
+    <label>New Booking Time:</label>
+    <input type="text" name="booking_time">
+    <br>
+
+    <label>Current Number of Holes:</label> <%= @schedule.number_of_holes %>
+    <br>
+    <label>New Number of Holes:</label>
+    <input type="text" name="number_of_holes">
+    <br> 
+
+    <label>Current Course:</label> <%= @schedule.course %>
+    <br>
+    <label>New Course:</label>
+    <input type="text" name="course">
+    <br>
+
+    <label>Current Phone:</label> <%= @schedule.phone %>
+    <br>
+    <label>New Phone:</label>
+    <input type="text" name="phone">
+    <br>
+
+    <label>Current Email:</label> <%= @schedule.email %>
+    <br>
+    <label>New Email:</label>
+    <input type="text" name="email">
+    <br>
+
+    <label>Current Note:</label> <%= @schedule.note%>
+    <br>
+    <label>New Note:</label>
+    <input type="text" name="note">
+    <br>
+
+    <input class="btn green darken-4"type="submit">
+    
+    
+</form>

@@ -1,0 +1,41 @@
+<h5>Schedule <%= @schedule.id %></h5>
+
+<strong>Date:</strong>
+<%= @schedule.date %>
+<br>
+
+<strong>Bookking Time:</strong>
+<%= @schedule.booking_time %>
+<br>
+
+<strong>Number of Holes:</strong>
+<%= @schedule.number_of_holes %>
+<br>
+
+<strong>Course:</strong>
+<%= @schedule.course %>
+<br>
+
+<strong>Phone:</strong>
+<%= @schedule.phone %>
+<br>
+
+<strong>Email:</strong>
+<%= @schedule.email %>
+<br>
+
+<strong>Note:</strong>
+<%= @schedule.note %>
+<br>
+<br>
+            
+<form action="/schedules/<%= @schedule.id %>/edit" method="get">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <input class="btn green darken-4" type="submit" value="edit">
+</form>
+<br>
+<form action="/schedules/<%= @schedule.id %>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input class="btn green darken-4" type="submit" value="delete">
+</form>
+
