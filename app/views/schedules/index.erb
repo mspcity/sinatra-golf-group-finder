@@ -12,8 +12,8 @@ table, th, td{
 <thead>
   <tr>
     <th>Date</th>
-    <th>Booking time</th>
-    <th>Number of holes</th>
+    <th>Tee time</th>
+    <th>Num of holes</th>
     <th>Course</th>
     <th>Phone</th>
     <th>Email</th>
@@ -26,14 +26,14 @@ table, th, td{
 <% @schedules.each do |t| %>
   
   <tr>
-    <td><%= t.date %></td>
-    <td><%= t.booking_time %></td>
-    <td><%= t.number_of_holes %></td>
-    <td><%= t.course %></td>
+    <td width="10%"><%= t.date %></td>
+    <td width="8%"><%= t.booking_time %></td>
+    <td width="9%"><%= t.number_of_holes %></td>
+    <td width="20%"><%= t.course %></td>
     <td><%= t.phone %></td>
     <td><%= t.email %></td>
-    <td><%= t.note %></td>
-    <td><a href="/schedules/<%= t.id %>">Link</a> </td>
+    <td width="25%"><%= t.note %></td>
+    <td width="2%"><a href="/schedules/<%= t.id %>">Link</a> </td>
   </tr>
   <% end %>
   </tbody>
