@@ -57,23 +57,23 @@ class SchedulesController < ApplicationController
       @schedule = Schedule.find_by_id(params[:id])
       @user = User.find_by_id(session[:user_id])
       
-       if @schedule.user == @user
+      if @schedule.user == @user
         
-        if @schedule.update(date: params[:date], booking_time: params[:booking_time], number_of_holes: params[:number_of_holes], course: params[:course], phone: params[:phone], email: params[:email], note: params[:note])
-          redirect to "/schedules/#{@schedule.id}"
-        else
-          redirect to "/schedeules/#{@schedule.id}/edit"
-        end
+         if @schedule.update(date: params[:date], booking_time: params[:booking_time], number_of_holes: params[:number_of_holes], course: params[:course], phone: params[:phone], email: params[:email], note: params[:note])
+           redirect to "/schedules/#{@schedule.id}"
+         else
+           redirect to "/schedeules/#{@schedule.id}/edit"
+         end
         
-        else
-          erb :'/errors/edit_delete_error'
-        end
+      else
+        erb :'/errors/edit_delete_error'
+      end
 
-        else
-        erb :'/users/login'
-        end
-      
+    else
+      erb :'/users/login'
     end
+      
+  end
     
     delete '/schedules/:id' do
       @schedule = Schedule.find_by_id(params[:id])
