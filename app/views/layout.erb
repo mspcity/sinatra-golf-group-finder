@@ -19,10 +19,8 @@
     <div class="wrapper">
     
       <% if Helpers.is_logged_in?(session) %>
-          <a href="/logout">
-          <input class="btn green darken-4" type="submit", name="submit" value="logout">
-          </a>
-
+          <a class="btn green darken-4" href="/logout">logout</a>
+          
       <% end %>
 
       <% if Helpers.current_user(session) %>

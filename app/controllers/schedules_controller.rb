@@ -3,22 +3,22 @@ class SchedulesController < ApplicationController
   get '/schedules/new' do
     erb :'schedules/new'
   end
-
+  
   get '/schedules' do
     
     if !(Helpers.is_logged_in?(session))
-      redirect to 'login'
+      redirect to '/login'
     end
-
-  
-
+    
+    
+    
     @schedules = Schedule.all
     
     erb :'schedules/index'
   end
-
-  post '/schedules' do
   
+  post '/schedules' do
+    
     if params[:date].blank? || params[:booking_time].blank? || params[:number_of_holes].blank? || params[:course].blank? || params[:phone].blank? || params[:email].blank? ||params[:note].blank?
       erb :'/errors/blank_error'
     else
@@ -27,8 +27,9 @@ class SchedulesController < ApplicationController
       redirect to '/schedules'
     end
   end
-
+  
   get '/schedules/:id' do
+   
     if Helpers.is_logged_in?(session)
       @schedule = Schedule.find_by_id(params[:id]) 
       if @schedule
@@ -40,7 +41,7 @@ class SchedulesController < ApplicationController
       redirect to '/login'
     end
   end
-
+  
   get '/schedules/:id/edit' do
     
     @schedule = Schedule.find_by_id(params[:id])
@@ -58,11 +59,12 @@ class SchedulesController < ApplicationController
       @user = User.find_by_id(session[:user_id])
       
       if @schedule.user == @user
-        
-         if @schedule.update(date: params[:date], booking_time: params[:booking_time], number_of_holes: params[:number_of_holes], course: params[:course], phone: params[:phone], email: params[:email], note: params[:note])
+        if params[:date].blank? || params[:booking_time].blank? || params[:number_of_holes].blank? || params[:course].blank? || params[:phone].blank? || params[:email].blank? ||params[:note].blank?
+          erb :'/errors/blank_error'
+         elsif @schedule.update(date: params[:date], booking_time: params[:booking_time], number_of_holes: params[:number_of_holes], course: params[:course], phone: params[:phone], email: params[:email], note: params[:note])
            redirect to "/schedules/#{@schedule.id}"
          else
-           redirect to "/schedeules/#{@schedule.id}/edit"
+           redirect to "/schedules/#{@schedule.id}/edit"
          end
         
       else

@@ -13,6 +13,7 @@
     <th>Email</th>
     <th>Note</th>
     <th>View</th>
+    <th>User</th>
     
   </tr>
 </thead>
@@ -28,6 +29,7 @@
     <td><%= t.email %></td>
     <td width="25%"><%= t.note %></td>
     <td width="2%"><a href="/schedules/<%= t.id %>">Link</a> </td>
+    <td><%= t.user.username %></td>
   </tr>
   <% end %>
   </tbody>
